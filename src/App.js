@@ -85,9 +85,7 @@ function App(props) {
 							width: "100%",
 						}}
 					>
-						<text style={{ fontSize: 35, fontWeight: "900" }}>Keywords</text>
-
-						<text style={{ fontSize: 35, marginLeft: 50, fontWeight: "900" }}>
+						<text style={{ fontSize: 35, fontWeight: "900" }}>
 							Expiry Date
 						</text>
 					</div>
@@ -106,10 +104,7 @@ function App(props) {
 									borderRadius: 15,
 								}}
 							>
-								<text style={{ fontSize: 30, fontWeight: "900", margin: 10 }}>
-									{item.keyword}
-								</text>
-								<text style={{ fontSize: 20, marginLeft: 50, margin: 10 }}>
+								<text style={{ fontSize: 20, margin: 10 }}>
 									{new Date(item.expiry).toDateString()}
 								</text>
 							</div>

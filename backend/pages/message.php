@@ -12,8 +12,11 @@ if (isset($_GET['code']) && $_GET['code'] != '') {
     $select->close();
 
     if ($number) {
-        $select = $db->prepare('SELECT * FROM `message` WHERE `to` = ?');
-        $select->bind_param('s', $number);
+        $select = $db->prepare('SELECT * FROM `message` WHERE `to` = ? AND `date_sent` > ?');
+        $select->bind_param('ss', $number, $time);
+
+        $time = date('Y-m-d H:i:s', strtotime('-5 min'));
+
         $select->execute();
         $result = $select->get_result();
         $message = $result->fetch_all(MYSQLI_ASSOC);

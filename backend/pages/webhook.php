@@ -9,12 +9,13 @@ if (isset($_GET['webhook_secret']) && $_GET['webhook_secret'] == '39647e088e4546
         isset($input->data->payload->text)
     ) {
         require_once(dirname(__FILE__) . '/../database.php');
-        $insert = $db->prepare('INSERT INTO `message` (`from`, `to`, `body`) VALUES (?, ?, ?)');
-        $insert->bind_param('sss', $from, $to, $body);
+        $insert = $db->prepare('INSERT INTO `message` (`from`, `to`, `body`, `date_sent`) VALUES (?, ?, ?, ?)');
+        $insert->bind_param('ssss', $from, $to, $body, $time);
 
         $from = htmlspecialchars($input->data->payload->from->phone_number);
         $to = htmlspecialchars($input->data->payload->to[0]->phone_number);
         $body = htmlspecialchars($input->data->payload->text);
+        $time = date('Y-m-d H:i:s');
 
         $insert->execute();
     }
