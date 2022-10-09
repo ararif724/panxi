@@ -28,7 +28,7 @@ if (isset($_GET['code']) && $_GET['code'] != '') {
             foreach ($filter as $fltr) {
                 if (time() <= strtotime($fltr->expiry)) {
                     foreach ($message as $msg) {
-                        if (strpos($msg['body'], $fltr->keyword) !== false && !in_array($msg['id'], $filteredId)) {
+                        if (stripos($msg['body'], $fltr->keyword) !== false && !in_array($msg['id'], $filteredId)) {
                             $filteredId[] = $msg['id'];
                             $filteredMessage[] = $msg;
                         }
