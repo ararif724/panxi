@@ -34,6 +34,7 @@ if (isset($_GET['code']) && $_GET['code'] != '') {
                         if (stripos($msg['body'], $fltr->keyword) !== false && !in_array($msg['id'], $filteredId)) {
                             $filteredId[] = $msg['id'];
                             $filteredMessage[] = $msg;
+                            break;
                         }
                     }
                 }
