@@ -11,7 +11,7 @@ root.render(
 		<BrowserRouter basename={appRoot}>
 			<Routes>
 				<Route path="/" element={<App />} />
-				<Route path="admin" element={<Admin />} />
+				<Route path="xiongxiaomao2022" element={<Admin />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
