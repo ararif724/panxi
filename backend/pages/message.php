@@ -12,7 +12,7 @@ if (isset($_GET['code']) && $_GET['code'] != '') {
     $select->close();
 
     if ($number) {
-        $select = $db->prepare('SELECT * FROM `message` WHERE `to` = ? AND `date_sent` > ?');
+        $select = $db->prepare('SELECT * FROM `message` WHERE `to` = ? AND `date_sent` >= ? ORDER BY `date_sent` DESC');
         $select->bind_param('ss', $number, $time);
 
         $time = date('Y-m-d H:i:s', strtotime('-5 min'));
