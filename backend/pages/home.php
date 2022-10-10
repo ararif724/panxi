@@ -10,6 +10,6 @@
     <script>
         const appRoot = '<?php echo getenv('APP_ROOT'); ?>';
     </script>
-    <script src="asset/bundle.js"></script>
+    <script src="asset/bundle.js?v=1.1"></script>
 </body>
 </html>
